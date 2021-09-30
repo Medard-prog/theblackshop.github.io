@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="imagen.png" sizes="64x64">
+    <script src="https://imageslidermaker.com/ism/js/ism-2.2.min.js"></script>
+    <link href="https://cdn.sellix.io/static/css/embed.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Shop</title>
+</head>
+
+<body>
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom" id="myNAV">
+        <div class="container">
+            <!-- LOGO -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto navbar-center" id="mySidenav" style="color: #2a2a2a;">
+                    <li class="nav-item active">
+                        <a href="#home" style="scroll-behavior: smooth;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pricing" style="scroll-behavior: smooth;">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" style="scroll-behavior: smooth;" onclick="sweet()">Support</a>
+                        <script>
+                            function sweet() {
+                                Swal.fire('Contact me on Discord: example#8888')
+                            }
+                        </script>
+                    </li>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <section class="bg-home-4" id="home">
+        <div class="home-bg-overlay"></div>
+        <div class="home-center">
+            <div class="home-desc-center">
+                <div class="container">
+                    <div class="row vertical-content">
+                        <div class="col-lg-6">
+                            <center>
+                                <h1>TheBlackShop</h1>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section bg-dark" id="pricing">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="title-heading text-center text-white">Our Products</h2>
+                    <p class="title-desc text-center text-white-50 mt-4">We offer the best prices</p>
+                </div>
+            </div>
+            <div>
+                <div class="row mt-4">
+                    <div class="col-lg-4">
+                        <div class="pricing-box text-center p-5 mt-5">
+                            <h4 class="pricing-plan text-uppercase">Discord Nitro Clasic</h4>
+                            <h2 class="pricing-price text-white mt-5 mb-0">€3.00</h2>
+                            <br>
+                            <p><i class="fas fa-check"></i> GIF Profile Picture, Banner, etc</p>
+                            <p><i class="fas fa-times"></i> 2 Boosts</p>
+                            <div class="mt-5">
+                                <a href="finish.html" onclick="create('Nitro-Classic', '3.00')" class="btn btn-custom btn-sm btn-round" data-sellix-product="5f29d6773b1b4">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="pricing-box-active text-center bg-light p-5 mt-5">
+                            <h4 class="pricing-plan text-uppercase">Discord Nitro </h4>
+                            <small class="most-sold">Most Sold!</small>
+                            <br>
+                            <h2 class="pricing-price text-white mt-5 mb-0">€5.00</h2>
+                            <br>
+                            <p><i class="fas fa-check"></i> GIF Profile Picture, Banner, etc</p>
+                            <p><i class="fas fa-check"></i> 2 Boosts</p>
+
+                            <div class="mt-5">
+                                <a href="finish.html" onclick="create('Nitro', '5.00')" class="btn btn-custom btn-sm btn-round" data-sellix-product="5f29d6fa46773">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="pricing-box text-center p-5 mt-5">
+                            <h4 class="pricing-plan text-uppercase">Soon</h4>
+                            <br>
+                            <h2 class="pricing-price text-white mt-5 mb-0">Soon</h2>
+                            <br>
+                            <p><i class="fas fa-check"></i> Soon</p>
+                            <p><i class="fas fa-check"></i> Soon</p>
+                            <div class="mt-5">
+                                <a href="#" class="btn btn-custom btn-sm btn-round btn-custom-white" data-sellix-product="5f29d8415611e">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="cookies.js"></script>
+                <script>
+                    function _getPathForCookie() {
+                        var _path = "" + window.location.pathname;
+                        var n = _path.indexOf("/", 1);
+                        if (n > 0) {
+                            _path = _path.substring(0, n);
+                        }
+                        return _path;
+                    }
+
+                    function createCookie(name, value, days) {
+                        var expires = "";
+                        if (days) {
+                            var date = new Date();
+                            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                            expires = "; expires=" + date.toGMTString();
+                        }
+                        var secure = "";
+                        if (("" + location.protocol).toLowerCase().indexOf("https") == 0) {
+                            secure = "; Secure";
+                        }
+                        // leave path empty => will be filled by system with the current path
+                        // valid path must be used to can run different instances on the same machines with different settings
+                        document.cookie = name + "=" + value + expires + secure + "; SameSite=strict; path=" + _getPathForCookie();
+                    }
+
+                    function readCookie(name) {
+                        var nameEQ = name + "=";
+                        var ca = document.cookie.split(';');
+                        for (var i = 0; i < ca.length; i++) {
+                            var c = ca[i];
+                            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                            if (c.indexOf(nameEQ) == 0) {
+                                var cval = c.substring(nameEQ.length, c.length);
+
+                                return cval;
+                            }
+                        }
+                        return null;
+                    }
+
+                    function eraseCookie(name) {
+                        createCookie(name, "", -1);
+                    }
+
+                    function create(item, price) {
+                        // _getPathForCookie();
+                        // createCookie(item, price, 1);
+                        // createCookie('temp', name, 1);
+                        localStorage.setItem("Name", item);
+                        // localStorage.setItem("Price", price);
+                    }
+                </script>
+
+                <!-- <div class="row mt-4">
+                    <div class="col-sm-6">
+                        <div class="pricing-box text-center p-5 mt-5">
+                            <h4 class="pricing-plan text-uppercase">Yearly</h4>
+                            <h2 class="pricing-price text-white mt-5 mb-0">$79.99</h2>
+                            <p><i class="fas fa-check"></i> 15 Daily Downloads</p>
+                            <p><i class="fas fa-check"></i> Access to all categories</p>
+                            <p><i class="fas fa-check"></i> Access to exclusive combos</p>
+                            <p><i class="fas fa-check"></i> Dedicated support</p>
+                            <div class="mt-5">
+                                <a href="" class="btn btn-custom btn-sm btn-round btn-custom-white" data-sellix-product="5f29db50c9042">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="pricing-box text-center p-5 mt-5">
+                            <h4 class="pricing-plan text-uppercase">Lifetime</h4>
+                            <h2 class="pricing-price text-white mt-5 mb-0">$89.99</h2>
+                            <p><i class="fas fa-check"></i> 15 Daily Downloads</p>
+                            <p><i class="fas fa-check"></i> Access to all categories</p>
+                            <p><i class="fas fa-check"></i> Access to exclusive combos</p>
+                            <p><i class="fas fa-check"></i> Dedicated support</p>
+                            <div class="mt-5">
+                                <a href="" class="btn btn-custom btn-sm btn-round btn-custom-white" data-sellix-product="5f5536ec35450">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+    </section>
+    <script src="https://cdn.sellix.io/static/js/embed.s"></script>
+    <script>
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                document.getElementById("myNAV").style.backgroundColor = "black";
+                document.getElementById("myNAV").style.padding = "10px 10px";
+            } else {
+                document.getElementById("myNAV").style.padding = "50px 10px";
+                document.getElementById("myNAV").style.backgroundColor = "rgba(255, 0, 0, 0.00)";
+            }
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+    
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+    
+          // Store hash
+          var hash = this.hash;
+    
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+    
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+    </script>
+</body>
+
+</html>

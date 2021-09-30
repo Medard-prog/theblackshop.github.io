@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="imagen.png" sizes="64x64">
+    <script src="https://imageslidermaker.com/ism/js/ism-2.2.min.js"></script>
+    <link href="https://cdn.sellix.io/static/css/embed.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>TheBlackShop - Checkout</title>
+</head>
+<style>
+        body {
+        background-color: #e6ebf4
+    }
+
+    .card {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 5px 6px 6px 2px #e9ecef
+    }
+
+    .heading {
+        font-size: 23px;
+        font-weight: 00
+    }
+
+    .text {
+        font-size: 16px;
+        font-weight: 500;
+        color: #b1b6bd
+    }
+
+    .pricing {
+        border: 2px solid #304FFE;
+        background-color: #f2f5ff
+    }
+
+    .business {
+        font-size: 20px;
+        font-weight: 500
+    }
+
+    .plan {
+        color: #aba4a4
+    }
+
+    .dollar {
+        font-size: 16px;
+        color: #6b6b6f
+    }
+
+    .amount {
+        font-size: 50px;
+        font-weight: 500
+    }
+
+    .year {
+        font-size: 20px;
+        color: #6b6b6f;
+        margin-top: 19px
+    }
+
+    .detail {
+        font-size: 22px;
+        font-weight: 500
+    }
+
+    .cvv {
+        height: 44px;
+        width: 73px;
+        border: 2px solid #eee
+    }
+
+    .cvv:focus {
+        box-shadow: none;
+        border: 2px solid #304FFE
+    }
+
+    .email-text {
+        height: 55px;
+        border: 2px solid #eee
+    }
+
+    .email-text:focus {
+        box-shadow: none;
+        border: 2px solid #304FFE
+    }
+
+    .payment-button {
+        height: 70px;
+        font-size: 20px
+    }
+</style>
+
+<body>
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom" id="myNAV">
+        <div class="container">
+            <!-- LOGO -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto navbar-center" id="mySidenav" style="color: #2a2a2a;">
+                    <li class="nav-item active">
+                        <a href="index.html" style="scroll-behavior: smooth;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" style="scroll-behavior: smooth;" onclick="sweet()">Support</a>
+                        <script>
+                            function sweet() {
+                                Swal.fire('Contact me on Discord: TheBlack#7400')
+                            }
+                        </script>
+                    </li>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <section class="bg-home-4" id="home">
+        <div class="home-bg-overlay"></div>
+        <div class="home-center">
+            <div class="home-desc-center">
+                <div class="container">
+                    <div class="row vertical-content">
+                        <div class="col-lg-6">
+                            <center>
+                                <h1>TheBlackShop</h1>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section bg-dark" id="pricing">
+        <div class="container">
+            <div class="container mt-5 mb-5 d-flex justify-content-center">
+                <div class="card p-5">
+                    <div>
+                        <h4 class="heading">Upgrade your plan</h4>
+                        <p class="text" style="text-align: center;">Please make the payment to get your selected product</p>
+                    </div>
+                    <div class="pricing p-3 rounded mt-4 d-flex justify-content-between">
+                        <div class="images d-flex flex-row align-items-center"> <img id="im" src="image/classic.jpg" class="rounded" width="60">
+                            <div class="d-flex flex-column ml-4"> <span id="nameH" class="business" style="color:#304FFE;">Nitro Classic</span> </div>
+                        </div>
+                        <!--pricing table-->
+                        <div class="d-flex flex-row align-items-center"> <sup class="dollar font-weight-bold">€</sup> <span id="priceH" class="amount ml-1 mr-1" style="color:#304FFE;">2.99</span> </div> <!-- /pricing table-->
+                    </div> <span class="detail mt-5" style="color:#2a2a2a;text-align: center;">Payment details</span>
+                    <h6 class="mt-4 text-primary">You can pay only with PayPal! For Bank Transfers DM Me on Discord!</h6>
+                    <h6 class="mt-4 text-primary" id="id">Purchase ID: </h6>
+                    <div class="email mt-2"> <input type="text" id="emdi" class="form-control email-text" placeholder="Email Address/Discord Name"> </div>
+                    <div class="mt-3"> <button onclick="sendM()" class="btn btn-primary btn-block payment-button">Proceed to payment <i class="fa fa-long-arrow-right"></i></button> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.sellix.io/static/js/embed.s"></script>
+    <script>
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                document.getElementById("myNAV").style.backgroundColor = "black";
+                document.getElementById("myNAV").style.padding = "10px 10px";
+            } else {
+                document.getElementById("myNAV").style.padding = "50px 10px";
+                document.getElementById("myNAV").style.backgroundColor = "rgba(255, 0, 0, 0.00)";
+            }
+        }
+    </script>
+    <script>
+            var currentdate = new Date(); 
+            var datetime =  currentdate.getDate() + "/"
+                            + (currentdate.getMonth()+1)  + "/" 
+                            + currentdate.getFullYear() + " @ "  
+                            + currentdate.getHours() + ":"  
+                            + currentdate.getMinutes() + ":" 
+                            + currentdate.getSeconds();
+
+            // var price = localStorage.getItem("Price");
+            var name = localStorage.getItem("Name");
+            console.log(name);
+            var nameH = document.getElementById("nameH");
+            var price = null;
+            var priceH = document.getElementById("priceH");
+            console.log(price + " ❤ " + name);
+
+            const generateRandomNumber = (min, max) =>  {
+                return Math.floor(Math.random() * (max - min) + min);
+            };
+    
+            var id = generateRandomNumber(1,9999);
+            document.getElementById("id").innerHTML = "Purchase ID: " + id + " | When you press the checkout button you will be redirected to PayPal.me, then press Send Money. Write there the amount of money (What the website says, if you selected Nitro-Classic send 3.99€) Please take attention to change USD to EUR. At the note text please write the ID what you're seeing. If you aren't making these steps then we do not guarantee a refund! After the payment you get your product link/code in 2 Hours (Can take up to 24H). The code will be sent to your Discord/Email Account! By pressing Proceed to payment button you're accepting our TOS! ";
+
+            if(name == "Nitro-Classic")
+            {
+                document.getElementById("nameH").innerHTML = "Nitro Classic";
+                document.getElementById("priceH").innerHTML = "3.00"
+                document.getElementById("im").src = "image/classic.jpg";
+                price = "2.99";
+            }
+            else if(name == "Nitro")
+            {
+                document.getElementById("nameH").innerHTML = "Nitro";
+                document.getElementById("priceH").innerHTML = "5.00";
+                document.getElementById("im").src = "image/nitro.jpg";
+                price = "5";
+            }
+
+            function sendM()
+            {
+                const request = new XMLHttpRequest();
+                request.open("POST", "https://discord.com/api/webhooks/892818804361560105/wO_L7rDTwW-e3vZVo6wtARkv7xvCG8RhSfndOq7kzyyio23GspCbYHJK3cM-2p3yNbst");
+
+                request.setRequestHeader('Content-type', 'application/json');
+
+                const params = {
+                    username: "TheBlack Webshop",
+                    avatar_url: "https://i.imgur.com/4M34hi2.png",
+                    content: "New Order (Please check if you have got the money on PayPay because this system is not checking PayPal payments!): Product: " + document.getElementById("nameH").innerHTML + " Price: " + price + " Time: " + datetime + " Email/Discord: " + document.getElementById("emdi").value + " ID: " + id,
+                }
+
+                request.send(JSON.stringify(params));
+
+                window.open("https://www.paypal.com/paypalme/TheBlackIdk");
+            }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+    
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+    
+          // Store hash
+          var hash = this.hash;
+    
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+    
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+    </script>
+</body>
+
+</html>
